@@ -1,9 +1,66 @@
 <div class="w-1/2 m-auto my-10">
-    <h1>{{ $title }}</h1>
-    <h1>Users Count : {{ count($users) }}</h1>
-    <button wire:click="createUser" type="button" class="text-white bg-blue-500 hover:bg-blue-800 font-medium rounded-lg text-xm px-5 py-2.5">
-        Create User
-    </button>
+    <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-900">
+  <body class="h-full">
+  ```
+-->
+    <div class="py-2">
+        <div class="sm:mx-auto">
+            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight ">Create New User</h2>
+        </div>
+
+        <div class="mt-10">
+            <form wire:submit.prevent="createNewUser" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm/6 font-medium text-gray-700">Name</label>
+                    <div class="mt-2">
+                        <input id="name" wire:model="name" type="text" name="name" required
+                            autocomplete="name"
+                            class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full" />
+                    </div>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm/6 font-medium text-gray-700">Email address</label>
+                    <div class="mt-2">
+                        <input id="email" wire:model="email" type="email" name="email" required
+                            autocomplete="email"
+                            class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full" />
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm/6 font-medium text-gray-700">Password</label>
+                        <div class="text-sm">
+                            <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot
+                                password?</a>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" wire:model="password" type="password" name="password" required
+                            autocomplete="current-password"
+                            class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full" />
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold  hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign
+                        in</button>
+                </div>
+            </form>
+
+            <p class="mt-10 text-center text-sm/6 text-gray-400">
+                Not a member?
+                <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free
+                    trial</a>
+            </p>
+        </div>
+    </div>
+
 
     <hr class="border-1 my-5">
     <h2 class="text-2xl font-semibold mb-2"> User List</h2>
