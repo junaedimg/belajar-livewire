@@ -15,7 +15,7 @@ class UsersList extends Component
 
     public $query = '';
 
-    
+
 
     public function search()
     {
@@ -29,9 +29,15 @@ class UsersList extends Component
         $this->resetPage();
     }
 
+    public function placeholder()
+    {
+        return view('livewire.placeholders.skeleton');
+    }
+
     public function render()
     {
         // dump($this->query);
+        // sleep(1);
         return view('livewire.users-list', [
             'title' => 'Title page',
             'users' => User::latest()
