@@ -126,7 +126,8 @@
 
                 <p class="mt-10 text-center text-sm/6 text-gray-400">
                     Not a member?
-                    <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free trial</a>
+                    <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free
+                        trial</a>
                 </p>
             </div>
         </div>
@@ -136,12 +137,33 @@
         <div class="sm:mx-auto mb-4">
             <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight ">User List</h2>
         </div>
+
+
+        <form class="max-w-lg mx-auto" wire:submit="search">
+            <label for="default-search"
+                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                </div>
+                <input wire:model.live.500ms="query"  type="search" id="default-search"
+                    class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Search User(s)..." />
+                <button type="submit"
+                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            </div>
+        </form>
+
+
         <ul role="list" class="divide-y divide-white/5">
             @foreach ($users as $user)
                 <li class="flex justify-between gap-x-6 py-5">
                     <div class="flex min-w-0 gap-x-4">
-                        <img src="{{ $user->avatar ?? "img/default_avatar.png" }}"
-                            alt=""
+                        <img src="{{ $user->avatar ?? 'img/default_avatar.png' }}" alt=""
                             class="size-12 flex-none rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
                         <div class="min-w-0 flex-auto">
                             <p class="text-sm/6 font-semibold ">{{ $user->name }}</p>
