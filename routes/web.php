@@ -2,14 +2,20 @@
 
 use App\Livewire\Counter;
 use App\Livewire\Users;
+use App\Livewire\Home;
+use App\Livewire\About;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Home::class);
 
 Route::get('/counter', Counter::class);
 
-Route::get('/users', function () {
-    return view('users');
-});
+// ! Versi blade
+// Route::get('/users', function () {
+//     return view('users');
+// });
+
+// ! Versi full page component livewire
+Route::get('/users', Users::class);
+
+Route::get('/about', About::class);
