@@ -8,14 +8,16 @@
     <title>{{ $title ?? 'Page Title' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600" rel="stylesheet" />
 </head>
 
 <body>
-    <livewire:users />
+    <div class="flex justify-center gap-10">
+        @livewire('users-list')
+        @livewire('user-register-form')
+    </div>
 </body>
 
 </html>
